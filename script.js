@@ -8,6 +8,7 @@ function a() {
         h.style.height = `${(Math.random()*60+50)}px`
         h.style.position = "fixed"
         h.className = "h"
+        h.style.filter = `brightness(${0.5+Math.random()*0.5})`
         h.style.left = `${Math.random() * window.innerWidth}px`
         h.style.top = `${Math.random() * window.innerHeight}px`
         h.style.backgroundColor = "cornflowerblue"
