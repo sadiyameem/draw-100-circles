@@ -1,3 +1,19 @@
 body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-color: #cce0ff;
+}
+
+#bowl {
+    width: 500px;
+    height: 500px;
+    background: rgba(100,149,237,0.15);
+    border: 8px solid cornflowerblue;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden; /* keeps circles inside */
+    box-shadow: 0 0 40px rgba(100,149,237,0.5);
 }
