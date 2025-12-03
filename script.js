@@ -15,19 +15,20 @@ function createCircle() {
         circle.style.position = "absolute";
         circle.className = "circle";
 
-        // random position inside the bowl
-        circle.style.left = `${Math.random() * rect.width}px`;
-        circle.style.top = `${Math.random() * rect.height}px`;
+        // horizontal position anywhere in container
+        const size = 50 + Math.random() * 60;
+        circle.style.left = `${Math.random() * (rect.width - size)}px`;
 
-        // base color for brightness
+        // vertical position only in water
+        const waterStart = rect.height * 0.5; // start of water
+        const waterHeight = rect.height * 0.5; //water thickness
+        circle.style.top = `${waterStart + Math.random() * (waterHeight - size)}px`;
+
+        // base color for brightness and style
         circle.style.filter = `brightness(${0.8+Math.random()*0.2})`
         circle.style.backgroundColor = "cornflowerblue"
-
-        // make the div circular
-        circle.style.borderRadius = "100%"
-
-        // add a glow/shade using the same color
-        circle.style.boxShadow = "0 0 25px cornflowerblue";
+        circle.style.borderRadius = "50%" // make the div circular
+        circle.style.boxShadow = "0 0 25px cornflowerblue"; // add a glow/shade using the same color
 
         // add the circles to the page
         container.appendChild(circle)
