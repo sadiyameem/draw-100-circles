@@ -1,39 +1,38 @@
-// counter to control how many circles are created
-t =0
+// keeps track of how many times the function ran
+let counter = 0;
 
-function a() {
-    t += 1 // increment (increase) the counter each time the function runs
+function createCircle() {
+    counter++; // increment (increase) the counter each time the function runs
 
     // only create a circle every 20 intervals (repeated time gap), stop after 800 intervals
-    if(t % 20 == 0 && t <= 800) {
+    if(counter % 20 == 0 && counter <= 800) {
+        const container = document.getElementById("circle");
+        const rect = container.getBoundingClientRect();
 
-        let bowl = document.getElementById("bowl");
-        let rect = bowl.getBoundingClientRect();
-
-        let h = document.createElement("div"); // make new circle
-        h.style.aspectRatio = '1/1' // make the div a perfect square
-        h.style.height = `${(Math.random()*60+50)}px` // random height between 50px and 110px
-        h.style.position = "absolute" // position the circles on the screen
-        h.className = "h" // class name for css
+        const circle = document.createElement("div");
+        circle.style.aspectRatio = '1/1'; // square div
+        circle.style.height = `${50 + Math.random() * 60}px`; // random height
+        circle.style.position = "absolute";
+        circle.className = "circle";
 
         // random position inside the bowl
-        h.style.left = `${Math.random() * rect.width}px`;
-        h.style.top = `${Math.random() * rect.height}px`;
+        circle.style.left = `${Math.random() * rect.width}px`;
+        circle.style.top = `${Math.random() * rect.height}px`;
 
         // base color for brightness
-        h.style.filter = `brightness(${0.8+Math.random()*0.2})`
-        h.style.backgroundColor = "cornflowerblue"
+        circle.style.filter = `brightness(${0.8+Math.random()*0.2})`
+        circle.style.backgroundColor = "cornflowerblue"
 
         // make the div circular
-        h.style.borderRadius = "100%"
+        circle.style.borderRadius = "100%"
 
         // add a glow/shade using the same color
-        h.style.boxShadow = "0 0 25px cornflowerblue";
+        circle.style.boxShadow = "0 0 25px cornflowerblue";
 
         // add the circles to the page
-        document.getElementById("bowl").appendChild(h) 
+        container.appendChild(circle)
     }
 }
 
 // call the function every 24 milliseconds
-setInterval(a,24)
+setInterval(createCircle,24)
