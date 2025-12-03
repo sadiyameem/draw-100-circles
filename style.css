@@ -7,7 +7,7 @@ body {
     background-color: #cce0ff;
 }
 
-#bowl {
+#circle {
     width: 500px;
     height: 500px;
     background: rgba(100,149,237,0.15);
@@ -17,7 +17,7 @@ body {
     overflow: hidden; /* keeps circles inside */
 }
 
-#bowl::after {
+#circle::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -28,7 +28,7 @@ body {
 }
 
 /* glass shine highlight */
-#bowl::before {
+#circle::before {
     content: "";
     position: absolute;
     top: 10%;
