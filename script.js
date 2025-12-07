@@ -9,7 +9,7 @@ function makeBubble() {
         let bubble = document.createElement("div");
         bubble.className = "bubble";
 
-        // randon left position inside the circle container
+        // random left position inside the circle container
         let randomX = Math.random() * (rect.width - 20);
         bubble.style.left = randomX + "px";
 
@@ -76,6 +76,18 @@ resetButton.addEventListener("click", function() {
     counter = 0;
 });
 
+// slider
+let slider = document.getElementById("speedSlider");
+let circleInterval = setInterval(createCircle, 24);
+
+slider.addEventListener("input", function() {
+    clearInterval(circleInterval);
+
+    // flip so left = slow and right = fast
+    let flipped = (100 - slider.value) * 0.2;
+
+    circleInterval = setInterval(createCircle, flipped);
+});
+
 // call the function 
-setInterval(createCircle,24)
 setInterval(makeBubble, 1200);
