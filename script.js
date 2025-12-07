@@ -26,7 +26,11 @@ function createCircle() {
 
         // base color for brightness and style
         circle.style.filter = `brightness(${0.8+Math.random()*0.2})`
-        circle.style.backgroundColor = "cornflowerblue"
+
+        // make a random shade of blue
+        let blueShade = 180 + Math.floor(Math.random() * 50);
+        circle.style.backgroundColor = "rgb(100, 149, " + blueShade + ")";
+        
         circle.style.borderRadius = "50%" // make the div circular
         circle.style.boxShadow = "0 0 25px cornflowerblue"; // add a glow/shade using the same color
 
