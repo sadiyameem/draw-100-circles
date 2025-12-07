@@ -1,6 +1,29 @@
 // keeps track of how many times the function ran
 let counter = 0;
 
+// create bubbles
+function makeBubble() {
+        let container = document.getElementById("circle");
+        let rect = container.getBoundingClientRect();
+
+        let bubble = document.createElement("div");
+        bubble.className = "bubble";
+
+        // randon left position inside the circle container
+        let randomX = Math.random() * (rect.width - 20);
+        bubble.style.left = randomX + "px";
+
+        // start near the bottom of the water
+        bubble.style.top = rect.height * 0.75 + "px";
+        container.appendChild(bubble);
+
+        //remove after animation finishes
+        setTimeout(function() {
+            bubble.remove();
+        }, 4000);
+    }
+
+    // create circles
 function createCircle() {
     counter++; // increment (increase) the counter each time the function runs
 
@@ -30,7 +53,7 @@ function createCircle() {
         // make a random shade of blue
         let blueShade = 180 + Math.floor(Math.random() * 50);
         circle.style.backgroundColor = "rgb(100, 149, " + blueShade + ")";
-        
+
         circle.style.borderRadius = "50%" // make the div circular
         circle.style.boxShadow = "0 0 25px cornflowerblue"; // add a glow/shade using the same color
 
@@ -55,3 +78,4 @@ resetButton.addEventListener("click", function() {
 
 // call the function every 24 milliseconds
 setInterval(createCircle,24)
+setInterval(makeBubble, 1200);
