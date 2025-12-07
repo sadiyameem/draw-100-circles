@@ -35,5 +35,19 @@ function createCircle() {
     }
 }
 
+// active reset button
+let resetButton = document.getElementById("resetBtn");
+
+resetButton.addEventListener("click", function() {
+    // remove all circles
+    let allCircles = document.querySelectorAll(".circle");
+    allCircles.forEach(function(c) {
+        c.remove();
+    });
+
+    //reset the counter so circles will start appearing again
+    counter = 0;
+});
+
 // call the function every 24 milliseconds
 setInterval(createCircle,24)
