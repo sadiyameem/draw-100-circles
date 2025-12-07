@@ -23,7 +23,7 @@ function makeBubble() {
         }, 4000);
     }
 
-    // create circles
+// create circles
 function createCircle() {
     counter++; // increment (increase) the counter each time the function runs
 
@@ -76,6 +76,6 @@ resetButton.addEventListener("click", function() {
     counter = 0;
 });
 
-// call the function every 24 milliseconds
+// call the function 
 setInterval(createCircle,24)
 setInterval(makeBubble, 1200);
