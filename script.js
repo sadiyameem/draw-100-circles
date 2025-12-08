@@ -28,7 +28,7 @@ function createCircle() {
     counter++; // increment (increase) the counter each time the function runs
 
     // only create a circle every 20 intervals (repeated time gap), stop after 800 intervals
-    if(counter % 20 == 0 && counter <= 800) {
+    if(counter % 20 == 0 && updateCount() < 100) {
         const container = document.getElementById("circle");
         const rect = container.getBoundingClientRect();
 
@@ -59,6 +59,7 @@ function createCircle() {
 
         // add the circles to the page
         container.appendChild(circle)
+        updateCount();
     }
 }
 
@@ -76,7 +77,7 @@ resetButton.addEventListener("click", function() {
     counter = 0;
 });
 
-// slider
+// slider function
 let slider = document.getElementById("speedSlider");
 let circleInterval = setInterval(createCircle, 24);
 
@@ -88,6 +89,13 @@ slider.addEventListener("input", function() {
 
     circleInterval = setInterval(createCircle, flipped);
 });
+
+// counter function
+function updateCount() {
+    let count = document.querySelectorAll(".circle").length;
+    document.getElementById("circleCount").textContent = "Circles: " + count;
+    return count;
+}
 
 // call the function 
 setInterval(makeBubble, 1200);
