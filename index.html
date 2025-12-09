@@ -6,8 +6,10 @@
     <title>Draw 100 Circles</title>
 </head>
 <body>
-    <input type="range" id="speedSlider" min="5" max="80" value="24">
-    <label for="speedSlider">Speed Slider</label>
+    <div id="sliderContainer">
+        <label for="speedSlider">Speed Slider</label>
+        <input type="range" id="speedSlider" min="5" max="80" value="24">
+    </div>
     <div id="circle"></div>
     <p id="circleCount" style="color:black; position:fixed; top:120px; left:20px;">
         Circle Counter: 0

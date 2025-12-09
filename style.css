@@ -76,10 +76,21 @@ body {
     }
 }
 
-#speedSlider {
+/* speed slider */
+#sliderContainer {
     position: fixed;
-    top: 70px;
+    top: 75px;
     left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#speedLabel {
+    color: white;
+    font-size: 15px;
+}
+
+#speedSlider {
     width: 150px;
 }
 
@@ -117,7 +128,15 @@ body {
 }
 
 /* bubbles & circles get bright */
-.glow-mode .bubble, .glow-mode .circle {
+.glow-mode .bubble, 
+.glow-mode .circle {
     box-shadow: 0 0 25px white !important;
     background: white !important;
+}
+
+/* show in the dark */
+.glow-mode #speedLabel, 
+.glow-mode #glowBtn, 
+.glow-mode #circleCount {
+    color: white !important;
 }
