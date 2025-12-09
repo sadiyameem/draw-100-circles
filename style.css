@@ -82,3 +82,42 @@ body {
     left: 20px;
     width: 150px;
 }
+
+/* glow button */
+#glowBtn {
+    position: fixed;
+    top: 160px;
+    left: 20px;
+    padding: 10px 18px;
+    font-size: 15px;
+    color: white;
+    background: cornflowerblue;
+    border: 2px solid cornflowerblue;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 12px cornflowerblue;
+}
+
+/* glow mode */
+.glow-mode {
+    background: #020617;
+}
+
+.glow-mode #circle {
+    border-color: white;
+    box-shadow: 0 0 25px white;
+}
+
+.glow-mode #circle::before {
+    background: rgba(255,255,255,0.4);
+}
+
+.glow-mode #circle::after {
+    background: rgba(255,255,255,0.2);
+}
+
+/* bubbles & circles get bright */
+.glow-mode .bubble, .glow-mode .circle {
+    box-shadow: 0 0 25px white !important;
+    background: white !important;
+}

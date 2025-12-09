@@ -63,7 +63,7 @@ function createCircle() {
     }
 }
 
-// active reset button
+// reset button
 let resetButton = document.getElementById("resetBtn");
 
 resetButton.addEventListener("click", function() {
@@ -75,6 +75,19 @@ resetButton.addEventListener("click", function() {
 
     //reset the counter so circles will start appearing again
     counter = 0;
+});
+
+// glow buttton code
+let glowBtn = document.getElementById("glowBtn");
+
+glowBtn.addEventListener("click", function() {
+    document.body.classList.toggle("glow-mode");
+
+    if (document.body.classList.contains("glow-mode")) {
+        glowBtn.textContent = "Light";
+    } else {
+        glowBtn.textContent = "Glow";
+    }
 });
 
 // slider function
