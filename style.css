@@ -27,6 +27,13 @@ body {
     background: rgba(100,149,237,0.25); /* water tint */
 }
 
+#circleCounter {
+    color: black;
+    position: fixed;
+    top: 105px;
+    left: 20px;
+}
+
 /* glass shine highlight */
 #circle::before {
     content: "";
