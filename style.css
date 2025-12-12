@@ -27,7 +27,7 @@ body {
     background: rgba(100,149,237,0.25); /* water tint */
 }
 
-#circleCounter {
+#circleCount {
     color: black;
     position: fixed;
     top: 105px;
