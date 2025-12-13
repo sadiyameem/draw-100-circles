@@ -37,6 +37,7 @@ function createCircle() {
         circle.style.height = `${50 + Math.random() * 60}px`; // random height
         circle.style.position = "absolute";
         circle.className = "circle";
+        circle.style.zIndex = "2";
 
         // horizontal position anywhere in container
         const size = 50 + Math.random() * 60;
@@ -112,8 +113,13 @@ function updateCount() {
 
 // function to add a hidden fish in the circle
 function addFish() {
+    let fishFound = 0;
+
     const container = document.getElementById("circle")
     const rect = container.getBoundingClientRect();
+
+    // one fish at a time
+    if (document.querySelectorAll("#fish").length >= 1) return;
 
     const fish = document.createElement("div")
     fish.id = "fish";
@@ -123,9 +129,14 @@ function addFish() {
     fish.style.width = `${size}px`;
     fish.style.height = `${size}px`;
     fish.style.position = "absolute";
+    fish.style.zIndex = "1"; // fish behind circles
 
-    // random position
+    // random horizontal position
     fish.style.left = `${Math.random() * (rect.width - size)}px`;
+
+    // random vertical position inside water
+    const waterStart = rect.height * 0.5;
+    const waterHeight = rect.height * 0.5;
     fish.style.top = `${Math.random() * (rect.height - size)}px`;
 
     // make it visible
@@ -137,11 +148,13 @@ function addFish() {
 
     // when the user clicks the fish
     fish.addEventListener("click", () => {
-        alert("You found the fish!"); // show message
+        fishFound++;
+        document.getElementById("fishCount").textContent =
+            "Fish found: " + fishFound;
         fish.remove(); // remove fish when found
     });
 }
 
 // call the function 
 setInterval(makeBubble, 1200);
-addFish();
+setInterval(addFish, 3000);
