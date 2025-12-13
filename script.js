@@ -110,5 +110,38 @@ function updateCount() {
     return count;
 }
 
+// function to add a hidden fish in the circle
+function addFish() {
+    const container = document.getElementById("circle")
+    const rect = container.getBoundingClientRect();
+
+    const fish = document.createElement("div")
+    fish.id = "fish";
+
+    // size and position
+    const size = 40;
+    fish.style.width = `${size}px`;
+    fish.style.height = `${size}px`;
+    fish.style.position = "absolute";
+
+    // random position
+    fish.style.left = `${Math.random() * (rect.width - size)}px`;
+    fish.style.top = `${Math.random() * (rect.height - size)}px`;
+
+    // make it visible
+    fish.style.backgroundColor = "orange";
+    fish.style.borderRadius = "50%";
+    fish.style.cursor = "pointer";
+
+    container.appendChild(fish); // add fish to the page
+
+    // when the user clicks the fish
+    fish.addEventListener("click", () => {
+        alert("You found the fish!"); // show message
+        fish.remove(); // remove fish when found
+    });
+}
+
 // call the function 
 setInterval(makeBubble, 1200);
+addFish();
