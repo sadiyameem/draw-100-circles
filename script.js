@@ -113,4 +113,3 @@ function updateCount() {
 
 // call the function 
 setInterval(makeBubble, 1200);
-setInterval(addFish, 3000);
