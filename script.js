@@ -63,7 +63,7 @@ function createCircle() {
     }
 }
 
-// reset button
+// reset all circles
 let resetButton = document.getElementById("resetBtn");
 
 resetButton.addEventListener("click", function() {
@@ -77,33 +77,33 @@ resetButton.addEventListener("click", function() {
     bubbleCounter = 0;
 });
 
-// glow buttton code
-let glowBtn = document.getElementById("glowBtn");
+// glow button
+let glowButton = document.getElementById("glowBtn");
 
-glowBtn.addEventListener("click", function() {
+glowButton.addEventListener("click", function() {
     document.body.classList.toggle("glow-mode");
 
     if (document.body.classList.contains("glow-mode")) {
-        glowBtn.textContent = "Light";
+        glowButton.textContent = "Light";
     } else {
-        glowBtn.textContent = "Glow";
+        glowButton.textContent = "Glow";
     }
 });
 
-// slider function
-let slider = document.getElementById("speedSlider");
+// slider control
+let speedControl = document.getElementById("speedSlider");
 let circleInterval = setInterval(createCircle, 24);
 
-slider.addEventListener("input", function() {
+speedControl.addEventListener("input", function() {
     clearInterval(circleInterval);
 
     // flip so left = slow and right = fast
-    let flipped = (100 - slider.value) * 0.2;
+    let flipped = (100 - speedControl.value) * 0.2;
 
     circleInterval = setInterval(createCircle, flipped);
 });
 
-// counter function
+// counter
 function updateCount() {
     let count = document.querySelectorAll(".circle").length;
     document.getElementById("circleCount").textContent = "Circles: " + count;
