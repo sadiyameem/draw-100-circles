@@ -1,5 +1,5 @@
 // keeps track of how many times the function ran
-let counter = 0;
+let bubbleCounter = 0;
 
 // create bubbles
 function makeBubble() {
@@ -17,7 +17,7 @@ function makeBubble() {
         bubble.style.top = rect.height * 0.75 + "px";
         container.appendChild(bubble);
 
-        //remove after animation finishes
+        // remove after animation finishes
         setTimeout(function() {
             bubble.remove();
         }, 4000);
@@ -25,10 +25,10 @@ function makeBubble() {
 
 // create circles
 function createCircle() {
-    counter++; // increment (increase) the counter each time the function runs
+    bubbleCounter++; // increment (increase) the counter
 
     // only create a circle every 20 intervals (repeated time gap), stop after 800 intervals
-    if(counter % 20 == 0 && updateCount() < 100) {
+    if(bubbleCounter % 20 == 0 && updateCount() < 100) {
         const container = document.getElementById("circle");
         const rect = container.getBoundingClientRect();
 
@@ -55,10 +55,9 @@ function createCircle() {
         let blueShade = 180 + Math.floor(Math.random() * 50);
         circle.style.backgroundColor = "rgb(100, 149, " + blueShade + ")";
 
-        circle.style.borderRadius = "50%" // make the div circular
+        circle.style.borderRadius = "50%"; // make the div circular
         circle.style.boxShadow = "0 0 25px cornflowerblue"; // add a glow/shade using the same color
 
-        // add the circles to the page
         container.appendChild(circle)
         updateCount();
     }
@@ -74,8 +73,8 @@ resetButton.addEventListener("click", function() {
         c.remove();
     });
 
-    //reset the counter so circles will start appearing again
-    counter = 0;
+    // reset the counter so circles will start appearing again
+    bubbleCounter = 0;
 });
 
 // glow buttton code
