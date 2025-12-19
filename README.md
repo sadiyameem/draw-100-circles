@@ -12,7 +12,7 @@
 - Circle counter
 
 # Motivation
-Someone gave me the idea to make this project
+- Someone gave me the idea to make this project
 
 # Challenges & Learning
 - I learned to make a project that I never heard of. 
