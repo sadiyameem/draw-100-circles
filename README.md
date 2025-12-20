@@ -16,4 +16,4 @@
 
 # Challenges & Learning
 - I learned to make a project that I never heard of. 
-- A challenge was to make the fish like bowl to appear and making the words to appear on the left.
+- A challenge was to make the fish like bowl to appear and making the words to appear on the left side corner.
